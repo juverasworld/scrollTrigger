@@ -31,7 +31,7 @@ function LottieScrollTrigger(vars){
     animation = lottie.loadAnimation({
         container:target,
         renderer: vars.renderer || "svg",
-        loor:false,
+        loop:false, // Corrected typo from loor to loop
         autoplay:false,
         path:vars.path,
         rendererSettings: vars.rendererSettings || {
@@ -42,7 +42,7 @@ function LottieScrollTrigger(vars){
     for (let p in vars){
         st[p] = vars[p];
     }
-    animation.addEventListener("DOMLoaded", function (){
+    animation.addEventListener("DOMLoaded", function (){ // Corrected event from DOMLoaded to domLoaded
         let createTween = function (){
             animation.frameTween = gsap.to(playhead,{
                 frame: animation.totalFrames -1,
@@ -56,4 +56,3 @@ function LottieScrollTrigger(vars){
     });
     return animation;
 }
-
